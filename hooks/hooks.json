@@ -1,4 +1,5 @@
 {
+  "description": "Notification hooks for task completion, permission requests, and input waiting",
   "hooks": {
     "UserPromptSubmit": [
       {
