@@ -1,8 +1,14 @@
 # claude-code-notifier
 
+[![License](https://img.shields.io/github/license/js-koo/claude-code-notifier)](LICENSE)
+[![Version](https://img.shields.io/github/v/tag/js-koo/claude-code-notifier?label=version)](https://github.com/js-koo/claude-code-notifier/releases)
+[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-blue)]()
+
 [English](README.md) | [한국어](README.ko.md)
 
 Get notified when Claude Code completes your tasks (Windows/macOS/Linux)
+
+![Demo](assets/demo.gif)
 
 ## Features
 
