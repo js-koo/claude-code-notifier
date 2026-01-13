@@ -107,6 +107,49 @@ MIN_DURATION_SECONDS=20
 PROMPT_PREVIEW_LENGTH=45
 ```
 
+### 설정 옵션 설명
+
+| 옵션 | 기본값 | 설명 |
+|------|--------|------|
+| `NOTIFIER_LANG` | `en` | UI 언어. `en`은 영어, `ko`는 한국어. 알림 메시지와 슬래시 커맨드 응답에 적용됩니다. |
+| `MIN_DURATION_SECONDS` | `20` | 알림을 표시할 최소 작업 시간. 이 시간보다 빨리 완료된 작업은 알림이 표시되지 않습니다. `0`으로 설정하면 모든 작업에 알림이 표시됩니다. |
+| `PROMPT_PREVIEW_LENGTH` | `45` | 알림에 표시할 원본 프롬프트의 글자 수. |
+
+### 알림 메시지
+
+메시지는 `NOTIFIER_LANG` 설정에 따라 자동으로 설정됩니다:
+
+| 이벤트 | English | 한국어 |
+|--------|---------|--------|
+| 작업 완료 | Task completed! | 작업 완료! |
+| 권한 필요 | Permission required! | 권한 필요! |
+| 입력 대기 | Waiting for input... | 입력 대기 중... |
+
+### 예시
+
+**빠른 작업은 알림 제외:**
+```bash
+# 60초 이상 걸린 작업만 알림
+/notifier duration 60
+```
+
+**항상 알림:**
+```bash
+# 모든 작업 완료 시 알림
+/notifier duration 0
+```
+
+**긴 프롬프트 미리보기:**
+```bash
+# 원본 프롬프트를 더 많이 표시
+/notifier preview 100
+```
+
+**영어로 전환:**
+```bash
+/notifier lang en
+```
+
 ## 작동 방식
 
 이 도구는 Claude Code의 [훅 시스템](https://docs.anthropic.com/en/docs/claude-code/hooks)을 사용합니다:
