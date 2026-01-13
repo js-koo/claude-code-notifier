@@ -21,7 +21,7 @@ Get notified when Claude Code completes your tasks (WSL/macOS/Linux)
 | Windows (WSL2) | ⚠️ Not tested yet |
 | Linux | ⚠️ Not tested yet |
 
-> Found an issue? Please [open an issue](https://github.com/joo-seung-Koo/claude-code-notifier/issues)!
+> Found an issue? Please [open an issue](https://github.com/js-koo/claude-code-notifier/issues)!
 
 ## Requirements
 
@@ -34,14 +34,14 @@ Get notified when Claude Code completes your tasks (WSL/macOS/Linux)
 ### One-line install
 
 ```bash
-git clone https://github.com/joo-seung-Koo/claude-code-notifier.git && cd claude-code-notifier && ./install.sh
+git clone https://github.com/js-koo/claude-code-notifier.git && cd claude-code-notifier && ./install.sh
 ```
 
 ### Manual install
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/joo-seung-Koo/claude-code-notifier.git
+   git clone https://github.com/js-koo/claude-code-notifier.git
    cd claude-code-notifier
    ```
 
@@ -155,6 +155,6 @@ MIT License - see [LICENSE](LICENSE) file.
 
 Contributions are welcome!
 
-- **Bug reports / Feature requests**: [Open an Issue](https://github.com/joo-seung-Koo/claude-code-notifier/issues)
+- **Bug reports / Feature requests**: [Open an Issue](https://github.com/js-koo/claude-code-notifier/issues)
 - **Code contributions**: Submit a Pull Request
 - **New language support**: Add `README.<lang>.md` and update `config.sh`

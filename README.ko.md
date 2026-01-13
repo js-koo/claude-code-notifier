@@ -21,7 +21,7 @@ Claude Code 작업 완료 시 알림을 받아보세요 (WSL/macOS/Linux)
 | Windows (WSL2) | ⚠️ 미테스트 |
 | Linux | ⚠️ 미테스트 |
 
-> 문제를 발견하셨나요? [Issue를 열어주세요](https://github.com/joo-seung-Koo/claude-code-notifier/issues)!
+> 문제를 발견하셨나요? [Issue를 열어주세요](https://github.com/js-koo/claude-code-notifier/issues)!
 
 ## 요구사항
 
@@ -34,14 +34,14 @@ Claude Code 작업 완료 시 알림을 받아보세요 (WSL/macOS/Linux)
 ### 원라인 설치
 
 ```bash
-git clone https://github.com/joo-seung-Koo/claude-code-notifier.git && cd claude-code-notifier && ./install.sh
+git clone https://github.com/js-koo/claude-code-notifier.git && cd claude-code-notifier && ./install.sh
 ```
 
 ### 수동 설치
 
 1. 저장소 클론:
    ```bash
-   git clone https://github.com/joo-seung-Koo/claude-code-notifier.git
+   git clone https://github.com/js-koo/claude-code-notifier.git
    cd claude-code-notifier
    ```
 
@@ -155,6 +155,6 @@ MIT 라이선스 - [LICENSE](LICENSE) 파일 참조
 
 기여를 환영합니다!
 
-- **버그 리포트 / 기능 제안**: [Issue 열기](https://github.com/joo-seung-Koo/claude-code-notifier/issues)
+- **버그 리포트 / 기능 제안**: [Issue 열기](https://github.com/js-koo/claude-code-notifier/issues)
 - **코드 기여**: Pull Request 제출
 - **새 언어 지원**: `README.<lang>.md` 추가 및 `config.sh` 업데이트
