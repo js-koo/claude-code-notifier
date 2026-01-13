@@ -31,13 +31,31 @@ Get notified when Claude Code completes your tasks (WSL/macOS/Linux)
 
 ## Installation
 
-### One-line install
+### As a Claude Code Plugin (Recommended)
+
+Run Claude Code with the plugin:
+
+```bash
+claude --plugin-dir /path/to/claude-code-notifier
+```
+
+Or add to your project's `.claude/settings.local.json`:
+
+```json
+{
+  "plugins": ["/path/to/claude-code-notifier"]
+}
+```
+
+### Standalone Installation
+
+#### One-line install
 
 ```bash
 git clone https://github.com/js-koo/claude-code-notifier.git && cd claude-code-notifier && ./install.sh
 ```
 
-### Manual install
+#### Manual install
 
 1. Clone the repository:
    ```bash

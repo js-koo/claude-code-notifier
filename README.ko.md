@@ -31,13 +31,31 @@ Claude Code 작업 완료 시 알림을 받아보세요 (WSL/macOS/Linux)
 
 ## 설치
 
-### 원라인 설치
+### Claude Code 플러그인으로 설치 (권장)
+
+플러그인으로 Claude Code 실행:
+
+```bash
+claude --plugin-dir /path/to/claude-code-notifier
+```
+
+또는 프로젝트의 `.claude/settings.local.json`에 추가:
+
+```json
+{
+  "plugins": ["/path/to/claude-code-notifier"]
+}
+```
+
+### 독립 설치
+
+#### 원라인 설치
 
 ```bash
 git clone https://github.com/js-koo/claude-code-notifier.git && cd claude-code-notifier && ./install.sh
 ```
 
-### 수동 설치
+#### 수동 설치
 
 1. 저장소 클론:
    ```bash
