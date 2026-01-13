@@ -77,6 +77,7 @@ Use the `/notifier` command in Claude Code:
 | `/notifier duration <seconds>` | Set minimum task duration (default: 20) |
 | `/notifier preview <length>` | Set prompt preview length (default: 45) |
 | `/notifier test` | Send a test notification |
+| `/notifier uninstall` | Uninstall claude-code-notifier |
 
 ### Manual Configuration
 

@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash(sed:*), Bash(cat:*), Bash(grep:*), Bash(mkdir:*), Bash(echo:*)
+allowed-tools: Bash(sed:*), Bash(cat:*), Bash(grep:*), Bash(mkdir:*), Bash(echo:*), Bash(~/.claude-code-notifier/uninstall.sh)
 argument-hint: <command> [value]
 description: Configure claude-code-notifier settings
 ---
@@ -15,6 +15,7 @@ description: Configure claude-code-notifier settings
 | `duration <seconds>` | Set minimum task duration (default: 20) |
 | `preview <length>` | Set prompt preview length (default: 45) |
 | `test` | Send a test notification |
+| `uninstall` | Uninstall claude-code-notifier |
 
 ## Task
 
@@ -53,7 +54,14 @@ echo '{"session_id": "test"}' | ~/.claude-code-notifier/scripts/notify.sh
 ```
 Show: "✅ Test notification sent!"
 
-### 5. `help` or empty/invalid command
+### 5. `uninstall`
+Run the uninstall script:
+```bash
+~/.claude-code-notifier/uninstall.sh
+```
+Show: "✅ claude-code-notifier has been uninstalled."
+
+### 6. `help` or empty/invalid command
 Show the available commands table above.
 
 ### Error Handling
