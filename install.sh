@@ -118,8 +118,9 @@ add_hook() {
     fi
 
     # Add the hook (with or without matcher)
+    local hook_entry
     if [ -n "$matcher" ]; then
-        local hook_entry=$(jq -n --arg cmd "$command" --arg matcher "$matcher" '{
+        hook_entry=$(jq -n --arg cmd "$command" --arg matcher "$matcher" '{
             "matcher": $matcher,
             "hooks": [
                 {
@@ -129,7 +130,7 @@ add_hook() {
             ]
         }')
     else
-        local hook_entry=$(jq -n --arg cmd "$command" '{
+        hook_entry=$(jq -n --arg cmd "$command" '{
             "hooks": [
                 {
                     "type": "command",

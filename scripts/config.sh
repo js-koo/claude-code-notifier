@@ -1,6 +1,7 @@
 #!/bin/bash
 # claude-code-notifier configuration
 # Edit these values to customize notification behavior
+# shellcheck disable=SC2034  # Variables are used by sourcing scripts
 
 # Language setting: "en" (English) or "ko" (한국어)
 NOTIFIER_LANG="en"

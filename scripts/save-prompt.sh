@@ -24,7 +24,7 @@ fi
 
 # Format prompt preview
 LENGTH=${#PROMPT}
-if [ $LENGTH -le $PROMPT_PREVIEW_LENGTH ]; then
+if [ "$LENGTH" -le "$PROMPT_PREVIEW_LENGTH" ]; then
     FORMATTED_PROMPT="$PROMPT"
 else
     FORMATTED_PROMPT="${PROMPT:0:$PROMPT_PREVIEW_LENGTH}..."

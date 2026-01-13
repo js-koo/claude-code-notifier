@@ -36,7 +36,8 @@ export NOTIFICATION_TYPE
 # Detect OS and route to appropriate notifier
 if grep -qi microsoft /proc/version 2>/dev/null; then
     # WSL (Windows Subsystem for Linux)
-    export NOTIFIER_DATA_DIR_WIN=$(wslpath -w "$DATA_DIR")
+    NOTIFIER_DATA_DIR_WIN=$(wslpath -w "$DATA_DIR")
+    export NOTIFIER_DATA_DIR_WIN
     PS1_PATH_WIN=$(wslpath -w "$SCRIPT_DIR/notifiers/windows.ps1")
     echo "$INPUT" | powershell.exe -ExecutionPolicy Bypass -File "$PS1_PATH_WIN"
 elif [ "$(uname)" = "Darwin" ]; then
