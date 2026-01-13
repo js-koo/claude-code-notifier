@@ -3,7 +3,7 @@
 # Called from notify.sh
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DATA_DIR="$HOME/.claude-code-notifier/data"
+source "$SCRIPT_DIR/../common.sh"
 
 # Read config from environment or use defaults
 MIN_DURATION=${MIN_DURATION_SECONDS:-20}
@@ -13,50 +13,25 @@ NOTIF_TYPE=${NOTIFICATION_TYPE:-""}
 # Read stdin (JSON from Claude Code)
 INPUT=$(cat)
 
-# Extract session_id
-if command -v jq &> /dev/null; then
-    SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // empty' 2>/dev/null)
-else
-    SESSION_ID=$(echo "$INPUT" | grep -o '"session_id":"[^"]*"' | sed 's/"session_id":"\(.*\)"/\1/' | head -1)
+SESSION_ID=$(get_session_id "$INPUT")
+
+# For Notification hooks (permission_prompt, idle_prompt), show immediately
+if [ -n "$NOTIF_TYPE" ] && [ "$NOTIF_TYPE" != "null" ]; then
+    osascript -e "display notification \"$NOTIFY_MSG\" with title \"Claude Code\""
+    exit 0
 fi
 
-if [ -z "$SESSION_ID" ]; then
-    SESSION_ID="default"
+# Stop hook: check duration threshold
+if ! should_notify "$SESSION_ID" "$MIN_DURATION"; then
+    exit 0
 fi
 
-# For Notification hooks (permission_prompt, idle_prompt), skip duration check
-if [ -z "$NOTIF_TYPE" ] || [ "$NOTIF_TYPE" = "null" ]; then
-    # Stop hook: check elapsed time
-    TIMESTAMP_FILE="$DATA_DIR/timestamp-${SESSION_ID}.txt"
-    if [ ! -f "$TIMESTAMP_FILE" ]; then
-        exit 0
-    fi
+# Get prompt preview and show notification
+PROMPT_TEXT=$(get_prompt_text "$SESSION_ID")
 
-    START_TIME=$(cat "$TIMESTAMP_FILE" 2>/dev/null)
-    CURRENT_TIME=$(date +%s)
-    ELAPSED=$((CURRENT_TIME - START_TIME))
-
-    # Skip if task was too short
-    if [ "$ELAPSED" -lt "$MIN_DURATION" ]; then
-        exit 0
-    fi
-
-    # Read prompt preview
-    PROMPT_FILE="$DATA_DIR/prompt-${SESSION_ID}.txt"
-    PROMPT_TEXT=""
-
-    if [ -f "$PROMPT_FILE" ]; then
-        PROMPT_TEXT=$(cat "$PROMPT_FILE" 2>/dev/null)
-    fi
-
-    # Show notification with prompt
-    if [ -n "$PROMPT_TEXT" ]; then
-        osascript -e "display notification \"$PROMPT_TEXT\" with title \"Claude Code\" subtitle \"$NOTIFY_MSG\""
-    else
-        osascript -e "display notification \"$NOTIFY_MSG\" with title \"Claude Code\""
-    fi
+if [ -n "$PROMPT_TEXT" ]; then
+    osascript -e "display notification \"$PROMPT_TEXT\" with title \"Claude Code\" subtitle \"$NOTIFY_MSG\""
 else
-    # Notification hook: show immediately without duration check
     osascript -e "display notification \"$NOTIFY_MSG\" with title \"Claude Code\""
 fi
 
