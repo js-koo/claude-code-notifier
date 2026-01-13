@@ -13,6 +13,16 @@ Get notified when Claude Code completes your tasks (WSL/macOS/Linux)
 - **Zero config**: Works out of the box with sensible defaults
 - **Slash command**: Easy configuration with `/notifier` command
 
+## Tested Environments
+
+| Platform | Status |
+|----------|--------|
+| macOS | ✅ Tested |
+| Windows (WSL2) | ⚠️ Not tested yet |
+| Linux | ⚠️ Not tested yet |
+
+> Found an issue? Please [open an issue](https://github.com/joo-seung-Koo/claude-code-notifier/issues)!
+
 ## Requirements
 
 - [Claude Code CLI](https://claude.ai/code)

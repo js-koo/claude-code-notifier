@@ -13,6 +13,16 @@ Claude Code 작업 완료 시 알림을 받아보세요 (WSL/macOS/Linux)
 - **무설정**: 설치 즉시 사용 가능
 - **슬래시 커맨드**: `/notifier` 명령어로 간편 설정
 
+## 테스트된 환경
+
+| 플랫폼 | 상태 |
+|--------|------|
+| macOS | ✅ 테스트 완료 |
+| Windows (WSL2) | ⚠️ 미테스트 |
+| Linux | ⚠️ 미테스트 |
+
+> 문제를 발견하셨나요? [Issue를 열어주세요](https://github.com/joo-seung-Koo/claude-code-notifier/issues)!
+
 ## 요구사항
 
 - [Claude Code CLI](https://claude.ai/code)
