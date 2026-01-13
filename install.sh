@@ -90,15 +90,24 @@ add_hook() {
     local command="$2"
     local matcher="$3"  # Optional matcher for Notification hooks
 
-    # Check if hook with this command already exists
-    local exists=$(jq --arg cmd "$command" --arg type "$hook_type" '
-        .hooks[$type] // [] |
-        map(select(.hooks[]?.command == $cmd)) |
-        length > 0
-    ' "$SETTINGS_FILE")
+    # Check if hook with this command (and matcher if provided) already exists
+    local exists
+    if [ -n "$matcher" ]; then
+        exists=$(jq --arg cmd "$command" --arg type "$hook_type" --arg matcher "$matcher" '
+            .hooks[$type] // [] |
+            map(select(.matcher == $matcher and (.hooks[]?.command == $cmd))) |
+            length > 0
+        ' "$SETTINGS_FILE")
+    else
+        exists=$(jq --arg cmd "$command" --arg type "$hook_type" '
+            .hooks[$type] // [] |
+            map(select(.matcher == null and (.hooks[]?.command == $cmd))) |
+            length > 0
+        ' "$SETTINGS_FILE")
+    fi
 
     if [ "$exists" = "true" ]; then
-        echo "  $hook_type hook already registered, skipping..."
+        echo "  $hook_type${matcher:+ ($matcher)} hook already registered, skipping..."
         return
     fi
 
