@@ -8,7 +8,12 @@
 
 Claude Code 작업 완료 시 알림을 받아보세요 (Windows/macOS/Linux)
 
+<details>
+<summary>데모</summary>
+
 ![Demo](assets/demo.gif)
+
+</details>
 
 ## 기능
 

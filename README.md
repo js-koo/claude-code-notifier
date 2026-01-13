@@ -8,7 +8,12 @@
 
 Get notified when Claude Code completes your tasks (Windows/macOS/Linux)
 
+<details>
+<summary>Demo</summary>
+
 ![Demo](assets/demo.gif)
+
+</details>
 
 ## Features
 
